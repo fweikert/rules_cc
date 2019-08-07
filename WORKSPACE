@@ -10,12 +10,11 @@ git_repository(
 load("@bazel_federation//:repositories.bzl", "rules_cc_deps")
 rules_cc_deps()
 
+load("//:setup.bzl", "rules_cc_setup")	
+rules_cc_setup()
+
 load("//:internal_deps.bzl", "rules_cc_internal_deps")	
 rules_cc_internal_deps()
 
-load("@bazel_skylib//:setup.bzl", "bazel_skylib_setup")	
-bazel_skylib_setup()
-
-load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
-go_rules_dependencies()
-go_register_toolchains()
+load("//:internal_setup.bzl", "rules_cc_internal_setup")	
+rules_cc_internal_setup()
